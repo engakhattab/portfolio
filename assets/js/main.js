@@ -21,9 +21,11 @@
   var menuBtn = $('#menu-toggle');
   var navLinks = $('#nav-links');
   function setMenu(open) {
+    var ar = root.getAttribute('lang') === 'ar' && window.I18N_AR;
     navLinks.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menuBtn.setAttribute('aria-label', open ? (ar ? window.I18N_AR.ui.closeMenu : 'Close menu')
+      : (ar ? window.I18N_AR.ui.openMenu : 'Open menu'));
   }
   menuBtn.addEventListener('click', function () {
     setMenu(!navLinks.classList.contains('open'));
@@ -36,9 +38,11 @@
   });
 
   /* ---------- Hero name: split into animated letters ---------- */
+  // Arabic letters must stay joined, so Arabic animates word by word instead of letter by letter.
   var splitEl = $('[data-split]');
-  if (splitEl && !reduceMotion) {
-    var text = splitEl.textContent.trim();
+  var nameEn = splitEl ? splitEl.textContent.trim() : '';
+  function renderName(text, byWord) {
+    if (!splitEl) return;
     splitEl.setAttribute('aria-label', text);
     splitEl.textContent = '';
     var ci = 0;
@@ -46,34 +50,39 @@
       var w = document.createElement('span');
       w.className = 'word';
       w.setAttribute('aria-hidden', 'true');
-      word.split('').forEach(function (ch) {
+      var pieces = (byWord || reduceMotion) ? [word] : word.split('');
+      pieces.forEach(function (ch) {
         var c = document.createElement('span');
         c.className = 'char';
         c.textContent = ch;
-        c.style.setProperty('--ci', ci++);
+        c.style.setProperty('--ci', byWord ? ci++ * 6 : ci++);
         w.appendChild(c);
       });
       splitEl.appendChild(w);
       if (wi < arr.length - 1) splitEl.appendChild(document.createTextNode(' '));
     });
-  } else if (splitEl) {
-    // keep gradient on last name without animation
-    var parts = splitEl.textContent.trim().split(' ');
-    var last = parts.pop();
-    splitEl.innerHTML = parts.join(' ') + ' <span class="word">' + last + '</span>';
   }
+  renderName(nameEn, false);
 
   /* ---------- Typed roles ---------- */
   var typedEl = $('#typed');
-  var roles = [
-    'AI & Back-End Developer',
-    'RAG & GenAI Builder',
-    'ASP.NET Core Engineer',
+  var rolesEn = [
+    'Full-Stack .NET & Angular Developer',
+    'Back-End .NET Specialist',
     'Clean Architecture · DDD · CQRS',
-    'Angular Full-Stack Developer'
+    'Angular Front-End Builder',
+    'AI-Powered Apps · RAG'
   ];
+  var roles = rolesEn;
+  var r = 0, i = roles[0].length, deleting = true;
+  function resetRoles(list) {
+    roles = list;
+    r = 0;
+    i = roles[0].length;
+    deleting = true;
+    if (typedEl) typedEl.textContent = roles[0];
+  }
   if (typedEl && !reduceMotion) {
-    var r = 0, i = roles[0].length, deleting = true;
     var tick = function () {
       var word = roles[r];
       if (deleting) {
@@ -141,12 +150,16 @@
   /* ---------- Chat mock: type the bot answer when visible ---------- */
   var chat = $('.chat-mock');
   var botText = $('#bot-text');
+  var botEn = botText ? botText.getAttribute('data-text') : '';
+  function botFull() {
+    return (root.getAttribute('lang') === 'ar' && window.I18N_AR) ? window.I18N_AR.botText : botEn;
+  }
   if (chat && botText) {
-    var full = botText.getAttribute('data-text');
     var typeAnswer = function () {
-      if (reduceMotion) { botText.textContent = full; chat.classList.add('done'); return; }
+      if (reduceMotion) { botText.textContent = botFull(); chat.classList.add('done'); return; }
       var k = 0;
       (function t() {
+        var full = botFull();
         k += 2;
         botText.textContent = full.slice(0, k);
         if (k < full.length) setTimeout(t, 22);
@@ -157,6 +170,19 @@
       if (entries[0].isIntersecting) { setTimeout(typeAnswer, 600); chio.disconnect(); }
     }, { threshold: 0.5 });
     chio.observe(chat);
+  }
+
+  /* ---------- Terminal: run "dotnet test" when visible ---------- */
+  var term = $('#term');
+  if (term) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      term.classList.add('run');
+    } else {
+      var tio = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { term.classList.add('run'); tio.disconnect(); }
+      }, { threshold: 0.5 });
+      tio.observe(term);
+    }
   }
 
   /* ---------- Degree progress (Aug 2022 → May 2027) ---------- */
@@ -317,9 +343,11 @@
     copyBtn.addEventListener('click', function () {
       var email = copyBtn.getAttribute('data-email');
       var done = function () {
-        showToast('Email copied to clipboard ✓');
-        copyBtn.querySelector('span').textContent = 'Copied!';
-        setTimeout(function () { copyBtn.querySelector('span').textContent = 'Copy'; }, 2000);
+        var ar = root.getAttribute('lang') === 'ar' && window.I18N_AR;
+        showToast(ar ? window.I18N_AR.ui.copied : 'Email copied to clipboard ✓');
+        var icon = copyBtn.querySelector('i');
+        icon.className = 'fa-solid fa-check';
+        setTimeout(function () { icon.className = 'fa-regular fa-copy'; }, 2000);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(done, function () { showToast(email); });
@@ -330,6 +358,96 @@
   }
 
   /* ---------- Footer year ---------- */
-  var yearEl = $('#year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  function setYear() {
+    var yearEl = $('#year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  }
+  setYear();
+
+  /* ---------- Language toggle (English <-> Arabic, RTL) ---------- */
+  var AR = window.I18N_AR;
+  var langBtn = $('#lang-toggle');
+  // Elements translated as a whole (they contain inline markup); everything else is translated per text fragment.
+  var RICH = 'h2, .eyebrow, .section-head .lead, .hero-sub, .award-pill > span:not(.medal), .tl-card li, .tl-sub, ' +
+    '.feat p, .proj-body > p:not(.proj-kind), .msg.user, .mem-note, .stats li > span:not([data-count]), ' +
+    '.contact .lead, .footer p, .fc-1 > span:not(.fc-icon), .fc-2 > span:not(.fc-icon)';
+  // Never translated: tech names, code, animated text handled separately.
+  var SKIP = 'script, style, [data-split], #typed, .marquee, .chips, code, .api-pills, .term-body, .fc-3, ' +
+    '.orbit, .logo, .dots, .lang-btn, .bot-text, .email-link';
+  var metaDesc = $('meta[name="description"]');
+  var enMeta = { title: document.title, description: metaDesc ? metaDesc.getAttribute('content') : '' };
+  var savedRich = [];
+  var savedText = [];
+
+  function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
+  function has(obj, k) { return Object.prototype.hasOwnProperty.call(obj, k); }
+
+  function toArabic() {
+    var handled = [];
+    $$(RICH).forEach(function (el) {
+      handled.push(el);
+      var k = norm(el.textContent);
+      if (has(AR.rich, k)) {
+        savedRich.push([el, el.innerHTML]);
+        el.innerHTML = AR.rich[k];
+      }
+    });
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function (node) {
+      var k = norm(node.nodeValue);
+      if (!k || !has(AR.text, k)) return;
+      for (var p = node.parentElement; p; p = p.parentElement) {
+        if (handled.indexOf(p) !== -1 || p.matches(SKIP)) return;
+      }
+      var lead = node.nodeValue.match(/^\s*/)[0];
+      var trail = node.nodeValue.match(/\s*$/)[0];
+      savedText.push([node, node.nodeValue]);
+      node.nodeValue = lead + AR.text[k] + trail;
+    });
+  }
+
+  function toEnglish() {
+    savedText.forEach(function (s) { s[0].nodeValue = s[1]; });
+    savedRich.forEach(function (s) { s[0].innerHTML = s[1]; });
+    savedText = [];
+    savedRich = [];
+  }
+
+  function setLang(lang, animateName) {
+    if (!AR) return;
+    var isAr = lang === 'ar';
+    var current = savedRich.length || savedText.length ? 'ar' : 'en';
+    if (current !== lang) {
+      if (isAr) toArabic(); else toEnglish();
+    }
+    root.setAttribute('lang', isAr ? 'ar' : 'en');
+    root.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+    document.title = isAr ? AR.meta.title : enMeta.title;
+    if (metaDesc) metaDesc.setAttribute('content', isAr ? AR.meta.description : enMeta.description);
+
+    // reveal anything that was just re-rendered
+    $$('[data-reveal]').forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-visible');
+    });
+    if (animateName !== false) renderName(isAr ? AR.name : nameEn, isAr);
+    resetRoles(isAr ? AR.roles : rolesEn);
+    if (chat && chat.classList.contains('done')) botText.textContent = botFull();
+
+    langBtn.querySelector('.lang-label').textContent = isAr ? 'EN' : 'ع';
+    langBtn.setAttribute('lang', isAr ? 'en' : 'ar');
+    langBtn.setAttribute('aria-label', isAr ? AR.ui.langBtnLabel : 'عرض الموقع بالعربية');
+    setYear();
+    moveGlider($('.filter.active'));
+    try { localStorage.setItem('lang', isAr ? 'ar' : 'en'); } catch (e) { }
+  }
+
+  if (langBtn && AR) {
+    langBtn.addEventListener('click', function () {
+      setLang(root.getAttribute('lang') === 'ar' ? 'en' : 'ar');
+    });
+    if (root.getAttribute('lang') === 'ar') setLang('ar');
+  }
 })();

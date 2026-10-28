@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AbdElrahman Mohammed | AI & Back-End Developer</title>
+  <title>AbdElrahman Khattab | Full-Stack .NET &amp; Angular Developer</title>
   <meta name="description"
-    content="AbdElrahman Mohammed — Software Engineering student (Class of 2027), AI & Back-End developer, 2nd place at the AI Hackathon 2026 with Care for You, a medical RAG assistant. Python/FastAPI, C#/ASP.NET Core, Angular." />
-  <meta name="author" content="AbdElrahman Mohammed" />
+    content="AbdElrahman Khattab — Full-stack .NET & Angular developer specialized in the back end: ASP.NET Core, EF Core, SQL Server, Clean Architecture, DDD and CQRS. Also builds AI features — 2nd place at the AI Hackathon 2026 with a medical RAG assistant." />
+  <meta name="author" content="AbdElrahman Khattab" />
   <meta name="theme-color" content="#070b14" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://abdelrahmankhattab.online/" />
-  <meta property="og:title" content="AbdElrahman Mohammed | AI & Back-End Developer" />
+  <meta property="og:title" content="AbdElrahman Khattab | Full-Stack .NET &amp; Angular Developer" />
   <meta property="og:description"
-    content="2nd place, AI Hackathon 2026 (Medical RAG). Builds AI prototypes end to end and production-style .NET back ends." />
+    content="Full-stack .NET & Angular developer specialized in the back end, with AI on top — 2nd place, AI Hackathon 2026." />
   <meta property="og:image" content="https://abdelrahmankhattab.online/assets/imgs/personal.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -23,6 +23,10 @@
     (function () {
       document.documentElement.classList.remove('no-js');
       try {
+        if (localStorage.getItem('lang') === 'ar') {
+          document.documentElement.setAttribute('lang', 'ar');
+          document.documentElement.setAttribute('dir', 'rtl');
+        }
         var t = localStorage.getItem('theme');
         if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', t);
@@ -33,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,8 +60,8 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#home" class="logo" aria-label="AbdElrahman Mohammed — home">
-        <span class="logo-mark">AM</span>
+      <a href="#home" class="logo" aria-label="AbdElrahman Khattab — home">
+        <span class="logo-mark">AK</span>
         <span class="logo-text">AbdElrahman<span class="dot">.</span></span>
       </a>
 
@@ -65,12 +69,15 @@
         <a href="#featured">Featured</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#ai">AI</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
+        <button class="icon-btn lang-btn" id="lang-toggle" type="button" aria-label="عرض الموقع بالعربية"
+          lang="ar"><span class="lang-label">ع</span></button>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light and dark theme">
           <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
           <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
@@ -89,26 +96,26 @@
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <a href="#featured" class="award-pill" data-reveal>
+          <a href="#ai" class="award-pill" data-reveal>
             <span class="medal">🥈</span>
-            <span><strong>2nd Place</strong> · AI Hackathon 2026 — Medical RAG</span>
+            <span><strong>2nd Place</strong> · AI Hackathon 2026</span>
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
 
           <p class="hello mono" data-reveal style="--d:.05s">Hi, I'm</p>
-          <h1 id="hero-title" class="hero-name" data-split>AbdElrahman Mohammed</h1>
+          <h1 id="hero-title" class="hero-name" data-split>AbdElrahman Khattab</h1>
 
           <p class="hero-role" data-reveal style="--d:.25s">
             <span class="mono prompt">&gt;</span>
-            <span class="typed" id="typed" aria-live="polite">AI &amp; Back-End Developer</span><span
+            <span class="typed" id="typed" aria-live="polite">Full-Stack .NET &amp; Angular Developer</span><span
               class="caret" aria-hidden="true"></span>
           </p>
 
           <p class="hero-sub" data-reveal style="--d:.35s">
-            Final-year Software Engineering student who builds working AI prototypes <em>end to end</em> —
-            from document ingestion and hybrid retrieval to grounded LLM answers — and production-style
-            <strong>C# / ASP.NET Core</strong> back ends with <strong>Angular</strong> front ends,
-            built on Clean Architecture, DDD and CQRS.
+            Full-stack developer <em>specialized in the back end</em>. I build production-style
+            <strong>C# / ASP.NET Core</strong> APIs with <strong>Angular</strong> front ends — Clean Architecture,
+            DDD, CQRS, OAuth 2.0 / OIDC and hundreds of automated tests — and I add <strong>AI</strong> where it
+            helps: my medical RAG assistant took 2nd place at the AI Hackathon 2026.
           </p>
 
           <div class="hero-ctas" data-reveal style="--d:.45s">
@@ -116,7 +123,7 @@
               <span>View my work</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
             </a>
             <a class="btn btn-ghost magnetic"
-              href="https://drive.google.com/file/d/1uNtYoydV5LgnyhPyhPeGLuT833dgJNY7/view?usp=sharing"
+              href="https://drive.google.com/file/d/1yM-pLrRUJD79PBSWIrUBAVb_FXd1U5hM/view?usp=sharing"
               target="_blank" rel="noopener">
               <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Download CV</span>
             </a>
@@ -138,32 +145,32 @@
 
         <div class="hero-visual" data-reveal="zoom" style="--d:.2s">
           <div class="orbit orbit-1" aria-hidden="true">
-            <span class="orb-icon" style="--a:0deg"><i class="fa-brands fa-python"></i></span>
-            <span class="orb-icon" style="--a:120deg"><i class="fa-brands fa-angular"></i></span>
-            <span class="orb-icon" style="--a:240deg"><i class="fa-brands fa-aws"></i></span>
+            <span class="orb-icon" style="--a:0deg"><i class="fa-brands fa-angular"></i></span>
+            <span class="orb-icon" style="--a:120deg"><i class="fa-solid fa-database"></i></span>
+            <span class="orb-icon" style="--a:240deg"><i class="fa-brands fa-python"></i></span>
           </div>
           <div class="orbit orbit-2" aria-hidden="true">
             <span class="orb-icon txt" style="--a:60deg"><b>.NET</b></span>
             <span class="orb-icon txt" style="--a:180deg"><b>C#</b></span>
-            <span class="orb-icon txt" style="--a:300deg"><b>SQL</b></span>
+            <span class="orb-icon txt" style="--a:300deg"><b>TS</b></span>
           </div>
 
           <div class="portrait">
             <div class="portrait-ring" aria-hidden="true"></div>
-            <img src="./assets/imgs/personal.jpeg" alt="Portrait of AbdElrahman Mohammed" fetchpriority="high"
+            <img src="./assets/imgs/personal.jpeg" alt="Portrait of AbdElrahman Khattab" fetchpriority="high"
               width="420" height="420" />
           </div>
 
           <div class="float-card fc-1" aria-hidden="true">
+            <span class="fc-icon green"><i class="fa-solid fa-circle-check"></i></span>
+            <span><strong>600+ tests</strong><small>passing · Clean Architecture</small></span>
+          </div>
+          <div class="float-card fc-2" aria-hidden="true">
             <span class="fc-icon gold"><i class="fa-solid fa-trophy"></i></span>
             <span><strong>2nd / 15,000+</strong><small>AI Hackathon applicants</small></span>
           </div>
-          <div class="float-card fc-2" aria-hidden="true">
-            <span class="fc-icon green"><i class="fa-solid fa-circle-check"></i></span>
-            <span><strong>600+ tests</strong><small>passing · Clean Arch</small></span>
-          </div>
           <div class="float-card fc-3 mono" aria-hidden="true">
-            <span class="c-key">rag</span>.<span class="c-fn">ask</span>(<span class="c-str">"…"</span>)
+            <span class="c-key">await</span> <span class="c-fn">mediator</span>.Send(<span class="c-str">cmd</span>)
           </div>
         </div>
       </div>
@@ -171,11 +178,9 @@
       <!-- Stats -->
       <div class="container">
         <ul class="stats" data-reveal style="--d:.3s">
-          <li><strong><span data-count="2">0</span><sup>nd</sup></strong><span>Place, AI Hackathon 2026</span></li>
-          <li><strong><span data-count="15000" data-format="k">0</span>+</strong><span>Hackathon applicants, 17
-              governorates</span></li>
-          <li><strong><span data-count="990">0</span>+</strong><span>Automated tests across Talabat &amp; HR projects</span>
-          </li>
+          <li><strong><span data-count="990">0</span>+</strong><span>Automated tests across my .NET projects</span></li>
+          <li><strong><span data-count="5">0</span></strong><span>Back-end systems built — 2 with Angular front ends</span></li>
+          <li><strong><span data-count="2">0</span><sup>nd</sup></strong><span>Place, AI Hackathon 2026 (15,000+ applicants)</span></li>
           <li><strong><span data-count="7">0</span></strong><span>Training tracks &amp; certifications</span></li>
         </ul>
       </div>
@@ -185,12 +190,346 @@
       </a>
     </section>
 
-    <!-- ============ FEATURED: CARE FOR YOU ============ -->
+    <!-- ============ FEATURED: FOOD-DELIVERY PLATFORM ============ -->
     <section class="section" id="featured" aria-labelledby="featured-title">
       <div class="container">
         <header class="section-head" data-reveal>
           <p class="eyebrow mono"><span>01</span> Featured project</p>
-          <h2 id="featured-title">Care for You — <span class="grad">Medical RAG Assistant</span></h2>
+          <h2 id="featured-title">Talabat-like <span class="grad">Food-Delivery Platform</span></h2>
+          <p class="lead">
+            A full-stack .NET + Angular system I started during my <strong>Link Development</strong> internship and
+            kept building afterwards: an enterprise-grade back end with separate <strong>Customer, Delivery and Admin
+            APIs</strong>, a central identity server, a DDD domain model with CQRS via MediatR, Redis cart caching, an
+            Angular customer app — and <strong>600+ automated
+            tests</strong> keeping it all honest.
+          </p>
+        </header>
+
+        <div class="featured-grid">
+          <!-- Animated architecture stack: a request travels from the Angular app down to SQL Server -->
+          <div class="arch card" data-reveal="left" aria-label="Architecture of the platform">
+            <div class="arch-track" aria-hidden="true"><span class="arch-packet"></span></div>
+
+            <div class="arch-layer" style="--i:0">
+              <span class="arch-icon" style="--c:#dd0031"><i class="fa-brands fa-angular"></i></span>
+              <div><strong>Angular customer app</strong><small>Browse · menu · cart · checkout · order history</small></div>
+              <span class="arch-tag mono">client</span>
+            </div>
+            <div class="arch-layer" style="--i:1">
+              <span class="arch-icon" style="--c:#f59e0b"><i class="fa-solid fa-key"></i></span>
+              <div><strong>Duende IdentityServer</strong><small>OAuth 2.0 / OIDC · PKCE · roles · custom JWT claims</small></div>
+              <span class="arch-tag mono">auth</span>
+            </div>
+            <div class="arch-layer apis" style="--i:2">
+              <span class="arch-icon" style="--c:#22d3ee"><i class="fa-solid fa-plug"></i></span>
+              <div class="api-pills">
+                <span>Customer API</span><span>Delivery API</span><span>Admin API</span>
+              </div>
+              <span class="arch-tag mono">api</span>
+            </div>
+            <div class="arch-layer" style="--i:3">
+              <span class="arch-icon" style="--c:#a78bfa"><i class="fa-solid fa-diagram-project"></i></span>
+              <div><strong>Application · CQRS</strong><small>MediatR command &amp; query handlers</small></div>
+              <span class="arch-tag mono">app</span>
+            </div>
+            <div class="arch-layer" style="--i:4">
+              <span class="arch-icon" style="--c:#34d399"><i class="fa-solid fa-cubes"></i></span>
+              <div><strong>Domain · DDD</strong><small>Aggregates for cart expiry, checkout, delivery assignment</small></div>
+              <span class="arch-tag mono">domain</span>
+            </div>
+            <div class="arch-layer" style="--i:5">
+              <span class="arch-icon" style="--c:#f472b6"><i class="fa-solid fa-database"></i></span>
+              <div><strong>Infrastructure</strong><small>EF Core · SQL Server · Redis cart cache · RowVersion</small></div>
+              <span class="arch-tag mono">infra</span>
+            </div>
+          </div>
+
+          <div class="feature-list" data-reveal="right">
+            <div class="term card" id="term">
+              <div class="chat-top">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="mono">~/Talabat_API</span>
+                <span class="tag-mini">illustrative</span>
+              </div>
+              <pre class="term-body mono"><span class="t-line"><span class="t-prompt">$</span> dotnet test</span><span class="t-line t-dim">Architecture tests ······· <b>passed</b></span><span class="t-line t-dim">Domain &amp; application ··· <b>passed</b></span><span class="t-line t-dim">SQL Server integration (Testcontainers) ··· <b>passed</b></span><span class="t-line t-ok">✔ Passed! 600+ tests, 0 failed</span></pre>
+            </div>
+            <article class="feat">
+              <span class="feat-icon"><i class="fa-solid fa-layer-group"></i></span>
+              <div>
+                <h3>Clean Architecture, DDD &amp; CQRS</h3>
+                <p>Zero infrastructure leakage into the domain — enforced by architecture tests. CQRS via MediatR
+                  separates reads and writes; optimistic concurrency (RowVersion) stops two couriers from taking the
+                  same order, and Redis caches shopping carts.</p>
+              </div>
+            </article>
+            <article class="feat">
+              <span class="feat-icon"><i class="fa-solid fa-shield-halved"></i></span>
+              <div>
+                <h3>Security that's built in</h3>
+                <p>A centralized OAuth 2.0 / OpenID Connect authority (Duende IdentityServer) with PKCE, role-based
+                  authorization and custom JWT claims, isolated from the Customer, Delivery and Admin APIs.</p>
+              </div>
+            </article>
+            <article class="feat">
+              <span class="feat-icon"><i class="fa-brands fa-angular"></i></span>
+              <div>
+                <h3>Angular, end to end</h3>
+                <p>The customer app is built against the APIs' OpenAPI contracts — browse, menu, cart, checkout and
+                  order history.</p>
+              </div>
+            </article>
+            <div class="chips">
+              <span>.NET</span><span>ASP.NET Core</span><span>MediatR</span><span>EF Core</span><span>SQL Server</span><span>Redis</span><span>Duende IdentityServer</span><span>Angular</span><span>xUnit</span><span>Testcontainers</span>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-ghost" href="https://github.com/engakhattab/Talabat_API" target="_blank"
+                rel="noopener"><i class="fa-brands fa-github"></i><span>API repo</span></a>
+              <a class="btn btn-ghost" href="https://github.com/engakhattab/talabat-frontend" target="_blank"
+                rel="noopener"><i class="fa-brands fa-angular"></i><span>Frontend repo</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono"><span>02</span> Experience</p>
+          <h2 id="exp-title">Where I've <span class="grad">worked</span></h2>
+        </header>
+
+        <div class="timeline" id="timeline">
+          <div class="timeline-line" aria-hidden="true"><span class="timeline-fill"></span></div>
+
+          <article class="tl-item" data-reveal="left">
+            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-code"></i></span>
+            <div class="tl-card card">
+              <div class="tl-head">
+                <div>
+                  <h3>Back-End .NET Intern</h3>
+                  <p class="tl-org">Link Development</p>
+                </div>
+                <span class="tl-date mono">Jul 2026 — Aug 2026</span>
+              </div>
+              <p class="tl-sub">Talabat-like food-delivery platform · .NET, EF Core, SQL Server, Duende IdentityServer,
+                Angular</p>
+              <ul>
+                <li>Applied CQRS, Domain-Driven Design, system design and software architecture from the training by
+                  building a Talabat-like platform — and kept developing it after the internship.</li>
+                <li>Layered Clean Architecture with separate <b>Customer, Delivery and Admin APIs</b> and an identity
+                  server (OAuth 2.0 / OpenID Connect, authorization code + PKCE, role-based access).</li>
+                <li>DDD aggregates and domain services for cart expiry, checkout validation and delivery assignment,
+                  with CQRS via MediatR, Redis cart caching and optimistic concurrency (RowVersion) to prevent conflicting
+                  courier assignments.</li>
+                <li>Built the Angular customer app end to end and covered the back end with <b>600+ automated
+                    tests</b>, including architecture tests and SQL Server integration tests with Testcontainers.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="tl-item" data-reveal="left">
+            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-headset"></i></span>
+            <div class="tl-card card">
+              <div class="tl-head">
+                <div>
+                  <h3>Technical Support Specialist</h3>
+                  <p class="tl-org">Arkan for Digital Technology</p>
+                </div>
+                <span class="tl-date mono">May 2025 — May 2026</span>
+              </div>
+              <ul>
+                <li>Supported business clients using ERP, POS and invoicing software, resolving day-to-day issues in
+                  their sales and invoicing operations.</li>
+                <li>Guided clients through an e-invoicing application that automates invoice submission to the
+                  Egyptian Tax Authority (ETA) portal.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="tl-item" data-reveal="left">
+            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></span>
+            <div class="tl-card card">
+              <div class="tl-head">
+                <div>
+                  <h3>Back-End Instructor (.NET) — Volunteer</h3>
+                  <p class="tl-org">Az-SENCS</p>
+                </div>
+                <span class="tl-date mono">Oct 2024 — May 2025</span>
+              </div>
+              <ul>
+                <li>Delivered technical presentations and training sessions on back-end development with .NET.</li>
+                <li>Mentored team members on coding and problem-solving, and encouraged knowledge sharing across the
+                  team.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="tl-item" data-reveal="left">
+            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-server"></i></span>
+            <div class="tl-card card">
+              <div class="tl-head">
+                <div>
+                  <h3>SAP Basis Intern</h3>
+                  <p class="tl-org">IT Department, Amer Group</p>
+                </div>
+                <span class="tl-date mono">Jul 2022 — Aug 2022</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="proj-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono"><span>03</span> Projects</p>
+          <h2 id="proj-title">Things I've <span class="grad">built</span></h2>
+          <p class="lead">Full-stack .NET &amp; Angular systems first — taken from business requirements to tested, demo-ready products.</p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filter projects" data-reveal>
+          <button class="filter active" data-filter="all" aria-pressed="true" type="button">All</button>
+          <button class="filter" data-filter="fullstack" aria-pressed="false" type="button">Full-Stack</button>
+          <button class="filter" data-filter="backend" aria-pressed="false" type="button">Back-End</button>
+          <button class="filter" data-filter="ai" aria-pressed="false" type="button">AI</button>
+          <span class="filter-glider" aria-hidden="true"></span>
+        </div>
+
+        <div class="projects">
+          <article class="project card tilt" data-cat="backend fullstack" data-reveal style="--c1:#fb923c;--c2:#f43f5e">
+            <div class="proj-visual">
+              <span class="proj-badge"><i class="fa-solid fa-vial-circle-check"></i> 600+ tests</span>
+              <i class="fa-solid fa-motorcycle proj-icon" aria-hidden="true"></i>
+              <code class="proj-code">POST /orders/checkout → 201</code>
+            </div>
+            <div class="proj-body">
+              <p class="proj-kind mono">Back-End · Full-Stack</p>
+              <h3>Talabat-like Food Delivery</h3>
+              <p>Enterprise-grade back end: Customer, Delivery &amp; Admin APIs on Clean Architecture + DDD + CQRS
+                (MediatR), an OAuth 2.0 / OIDC identity server, Redis cart caching and an Angular customer app.</p>
+              <div class="chips sm"><span>.NET</span><span>MediatR</span><span>EF Core</span><span>SQL Server</span><span>Redis</span><span>Angular</span></div>
+              <div class="proj-links">
+                <a href="https://github.com/engakhattab/Talabat_API" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i> API</a>
+                <a href="https://github.com/engakhattab/talabat-frontend" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-angular"></i> Frontend</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card tilt" data-cat="fullstack backend" data-reveal style="--c1:#34d399;--c2:#0ea5e9;--d:.08s">
+            <div class="proj-visual">
+              <span class="proj-badge"><i class="fa-solid fa-vial-circle-check"></i> 390+ tests</span>
+              <i class="fa-solid fa-people-group proj-icon" aria-hidden="true"></i>
+              <code class="proj-code">[Authorize(Policy = "HrAdmin")]</code>
+            </div>
+            <div class="proj-body">
+              <p class="proj-kind mono">Full-Stack · Independent</p>
+              <h3>HR Management System</h3>
+              <p>Employees, departments, leave &amp; transport requests, attendance, compensation and audit logs. HR
+                policy turned into enforced rules, with scoped role-based access for Admin, HR, Manager and Employee.
+              </p>
+              <div class="chips sm"><span>ASP.NET Core 8</span><span>Angular</span><span>SQL Server</span><span>Identity</span><span>xUnit</span></div>
+              <div class="proj-links">
+                <a href="https://github.com/engakhattab/DEPI_Angular_project" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i> Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card tilt" data-cat="backend" data-reveal style="--c1:#818cf8;--c2:#ec4899;--d:.16s">
+            <div class="proj-visual">
+              <span class="proj-badge"><i class="fa-solid fa-earth-africa"></i> Geo-blocking</span>
+              <i class="fa-solid fa-ban proj-icon" aria-hidden="true"></i>
+              <code class="proj-code">403 · country blocked (temp)</code>
+            </div>
+            <div class="proj-body">
+              <p class="proj-kind mono">Back-End · API</p>
+              <h3>IP Blocker API</h3>
+              <p>Web API that blocks requests by country — permanently or for a set time — using IPGeolocation.io
+                behind a service interface, with a background cleanup worker, request logging and unit tests.</p>
+              <div class="chips sm"><span>ASP.NET Core</span><span>REST</span><span>Background services</span></div>
+              <div class="proj-links">
+                <a href="https://github.com/engakhattab/IpBlocker" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i> Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card tilt" data-cat="fullstack backend" data-reveal style="--c1:#facc15;--c2:#10b981">
+            <div class="proj-visual">
+              <span class="proj-badge"><i class="fa-solid fa-school"></i> School platform</span>
+              <i class="fa-solid fa-graduation-cap proj-icon" aria-hidden="true"></i>
+              <code class="proj-code">GET /students/42/grades → 200</code>
+            </div>
+            <div class="proj-body">
+              <p class="proj-kind mono">Full-Stack · ASP.NET Core</p>
+              <h3>Learning Management System</h3>
+              <p>A platform for running school operations — student registration, attendance tracking, grading and
+                communication between teachers and parents.</p>
+              <div class="chips sm"><span>ASP.NET Core</span><span>EF Core</span><span>SQL Server</span><span>Identity</span><span>Bootstrap</span></div>
+              <div class="proj-links">
+                <a href="https://github.com/engakhattab/LMS" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i> Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card tilt" data-cat="backend" data-reveal style="--c1:#38bdf8;--c2:#6366f1;--d:.08s">
+            <div class="proj-visual">
+              <span class="proj-badge"><i class="fa-solid fa-key"></i> API-key auth</span>
+              <i class="fa-solid fa-chart-column proj-icon" aria-hidden="true"></i>
+              <code class="proj-code">GET /reports/daily → 200 JSON</code>
+            </div>
+            <div class="proj-body">
+              <p class="proj-kind mono">Back-End · API</p>
+              <h3>Sales Reporting API</h3>
+              <p>A minimal, framework-free PHP 8 API exposing sales and reporting data through secure endpoints —
+                API-key authentication, request logging, validation and daily reporting.</p>
+              <div class="chips sm"><span>PHP 8</span><span>REST</span><span>PDO</span><span>MySQL</span><span>Postman</span></div>
+            </div>
+          </article>
+
+          <article class="project card tilt" data-cat="ai" data-reveal style="--c1:#22d3ee;--c2:#a78bfa;--d:.24s">
+            <div class="proj-visual">
+              <span class="proj-badge"><i class="fa-solid fa-trophy"></i> 2nd Place</span>
+              <i class="fa-solid fa-heart-pulse proj-icon" aria-hidden="true"></i>
+              <code class="proj-code">POST /chat/stream → 200 · cited ✓</code>
+            </div>
+            <div class="proj-body">
+              <p class="proj-kind mono">AI · RAG · Team</p>
+              <h3>Care for You</h3>
+              <p>Medical RAG assistant with hybrid retrieval, cross-encoder reranking, streaming LLM answers, citation
+                validation and personalized memory in Arabic &amp; English.</p>
+              <div class="chips sm"><span>Python</span><span>FastAPI</span><span>Qdrant</span><span>Supabase</span><span>AWS</span></div>
+              <div class="proj-links">
+                <a href="https://github.com/mohamed-hossam1/hackathon-rag" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i> Code</a>
+                <a href="#ai"><i class="fa-solid fa-diagram-project"></i> How it works</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="more" data-reveal>
+          <a href="https://github.com/engakhattab" target="_blank" rel="noopener" class="link-arrow">More on GitHub
+            <i class="fa-solid fa-arrow-right"></i></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ AI: CARE FOR YOU ============ -->
+    <section class="section" id="ai" aria-labelledby="ai-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono"><span>04</span> AI work · 🥈 2nd place</p>
+          <h2 id="ai-title">Bringing <span class="grad">AI</span> into real products</h2>
+          <p class="lead">
+            <strong>Care for You — Medical RAG Assistant.</strong></p>
           <p class="lead">
             A clinical decision-support assistant that answers medical questions from official guidelines (e.g. WHO)
             with cited sources — and <strong>abstains</strong> when the evidence is weak. Built with my team at the
@@ -297,257 +636,57 @@
       </div>
     </section>
 
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section" id="experience" aria-labelledby="exp-title">
-      <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow mono"><span>02</span> Experience</p>
-          <h2 id="exp-title">Where I've <span class="grad">worked</span></h2>
-        </header>
-
-        <div class="timeline" id="timeline">
-          <div class="timeline-line" aria-hidden="true"><span class="timeline-fill"></span></div>
-
-          <article class="tl-item" data-reveal="left">
-            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-code"></i></span>
-            <div class="tl-card card">
-              <div class="tl-head">
-                <div>
-                  <h3>Back-End .NET Intern</h3>
-                  <p class="tl-org">Link Development</p>
-                </div>
-                <span class="tl-date mono">Jul 2026 — Aug 2026</span>
-              </div>
-              <p class="tl-sub">Talabat-like food-delivery platform · .NET, EF Core, SQL Server, Duende IdentityServer,
-                Angular</p>
-              <ul>
-                <li>Applied CQRS, Domain-Driven Design, system design and software architecture from the training by
-                  building a Talabat-like platform — and kept developing it after the internship.</li>
-                <li>Layered Clean Architecture with separate <b>Customer, Delivery and Admin APIs</b> and an identity
-                  server (OAuth 2.0 / OpenID Connect, authorization code + PKCE, role-based access).</li>
-                <li>DDD aggregates and domain services for cart expiry, checkout validation and delivery assignment,
-                  with optimistic concurrency (RowVersion) to prevent conflicting courier assignments.</li>
-                <li>Built the Angular customer app end to end and covered the back end with <b>600+ automated
-                    tests</b>, including architecture tests and SQL Server integration tests with Testcontainers.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="tl-item" data-reveal="left">
-            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-headset"></i></span>
-            <div class="tl-card card">
-              <div class="tl-head">
-                <div>
-                  <h3>Technical Support Specialist</h3>
-                  <p class="tl-org">Arkan for Digital Technology</p>
-                </div>
-                <span class="tl-date mono">May 2025 — May 2026</span>
-              </div>
-              <ul>
-                <li>Supported business clients using ERP, POS and invoicing software, resolving day-to-day issues in
-                  their sales and invoicing operations.</li>
-                <li>Guided clients through an e-invoicing application that automates invoice submission to the
-                  Egyptian Tax Authority (ETA) portal.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="tl-item" data-reveal="left">
-            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></span>
-            <div class="tl-card card">
-              <div class="tl-head">
-                <div>
-                  <h3>Back-End Instructor (.NET) — Volunteer</h3>
-                  <p class="tl-org">Az-SENCS</p>
-                </div>
-                <span class="tl-date mono">Oct 2024 — May 2025</span>
-              </div>
-              <ul>
-                <li>Delivered technical presentations and training sessions on back-end development with .NET, and
-                  mentored team members on coding and problem-solving.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="tl-item" data-reveal="left">
-            <span class="tl-dot" aria-hidden="true"><i class="fa-solid fa-server"></i></span>
-            <div class="tl-card card">
-              <div class="tl-head">
-                <div>
-                  <h3>SAP Basis Intern</h3>
-                  <p class="tl-org">IT Department, Amer Group</p>
-                </div>
-                <span class="tl-date mono">Jul 2022 — Aug 2022</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects" aria-labelledby="proj-title">
-      <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow mono"><span>03</span> Projects</p>
-          <h2 id="proj-title">Things I've <span class="grad">built</span></h2>
-          <p class="lead">From business requirements to tested, demo-ready products.</p>
-        </header>
-
-        <div class="filters" role="group" aria-label="Filter projects" data-reveal>
-          <button class="filter active" data-filter="all" aria-pressed="true" type="button">All</button>
-          <button class="filter" data-filter="ai" aria-pressed="false" type="button">AI</button>
-          <button class="filter" data-filter="backend" aria-pressed="false" type="button">Back-End</button>
-          <button class="filter" data-filter="fullstack" aria-pressed="false" type="button">Full-Stack</button>
-          <span class="filter-glider" aria-hidden="true"></span>
-        </div>
-
-        <div class="projects">
-          <article class="project card tilt" data-cat="ai" data-reveal style="--c1:#22d3ee;--c2:#a78bfa">
-            <div class="proj-visual">
-              <span class="proj-badge"><i class="fa-solid fa-trophy"></i> 2nd Place</span>
-              <i class="fa-solid fa-heart-pulse proj-icon" aria-hidden="true"></i>
-              <code class="proj-code">POST /chat/stream → 200 · cited ✓</code>
-            </div>
-            <div class="proj-body">
-              <p class="proj-kind mono">AI · RAG · Team</p>
-              <h3>Care for You</h3>
-              <p>Medical RAG assistant with hybrid retrieval, cross-encoder reranking, streaming LLM answers, citation
-                validation and personalized memory in Arabic &amp; English.</p>
-              <div class="chips sm"><span>Python</span><span>FastAPI</span><span>Qdrant</span><span>Supabase</span><span>AWS</span></div>
-              <div class="proj-links">
-                <a href="https://github.com/mohamed-hossam1/hackathon-rag" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-github"></i> Code</a>
-                <a href="#featured"><i class="fa-solid fa-diagram-project"></i> How it works</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project card tilt" data-cat="backend fullstack" data-reveal style="--c1:#fb923c;--c2:#f43f5e;--d:.08s">
-            <div class="proj-visual">
-              <span class="proj-badge"><i class="fa-solid fa-vial-circle-check"></i> 600+ tests</span>
-              <i class="fa-solid fa-motorcycle proj-icon" aria-hidden="true"></i>
-              <code class="proj-code">POST /orders/checkout → 201</code>
-            </div>
-            <div class="proj-body">
-              <p class="proj-kind mono">Back-End · Full-Stack</p>
-              <h3>Talabat-like Food Delivery</h3>
-              <p>Customer, Delivery &amp; Admin APIs on Clean Architecture + DDD + CQRS, with an OAuth 2.0 / OIDC
-                identity server and an Angular customer app (browse, cart, checkout, order history).</p>
-              <div class="chips sm"><span>.NET</span><span>EF Core</span><span>SQL Server</span><span>Duende IS</span><span>Angular</span></div>
-              <div class="proj-links">
-                <a href="https://github.com/engakhattab/Talabat_API" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-github"></i> API</a>
-                <a href="https://github.com/engakhattab/talabat-frontend" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-angular"></i> Frontend</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project card tilt" data-cat="fullstack backend" data-reveal style="--c1:#34d399;--c2:#0ea5e9;--d:.16s">
-            <div class="proj-visual">
-              <span class="proj-badge"><i class="fa-solid fa-vial-circle-check"></i> 390+ tests</span>
-              <i class="fa-solid fa-people-group proj-icon" aria-hidden="true"></i>
-              <code class="proj-code">[Authorize(Policy = "HrAdmin")]</code>
-            </div>
-            <div class="proj-body">
-              <p class="proj-kind mono">Full-Stack · Independent</p>
-              <h3>HR Management System</h3>
-              <p>Employees, departments, leave &amp; transport requests, attendance, compensation and audit logs. HR
-                policy turned into enforced rules, with scoped role-based access for Admin, HR, Manager and Employee.
-              </p>
-              <div class="chips sm"><span>ASP.NET Core 8</span><span>Angular</span><span>SQL Server</span><span>Identity</span><span>xUnit</span></div>
-              <div class="proj-links">
-                <a href="https://github.com/engakhattab/DEPI_Angular_project" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project card tilt" data-cat="backend" data-reveal style="--c1:#818cf8;--c2:#ec4899;--d:.24s">
-            <div class="proj-visual">
-              <span class="proj-badge"><i class="fa-solid fa-earth-africa"></i> Geo-blocking</span>
-              <i class="fa-solid fa-ban proj-icon" aria-hidden="true"></i>
-              <code class="proj-code">403 · country blocked (temp)</code>
-            </div>
-            <div class="proj-body">
-              <p class="proj-kind mono">Back-End · API</p>
-              <h3>IP Blocker API</h3>
-              <p>Web API that blocks requests by country — permanently or for a set time — using IPGeolocation.io
-                behind a service interface, with a background cleanup worker, request logging and unit tests.</p>
-              <div class="chips sm"><span>ASP.NET Core</span><span>REST</span><span>Background services</span></div>
-              <div class="proj-links">
-                <a href="https://github.com/engakhattab/IpBlocker" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <p class="more" data-reveal>
-          <a href="https://github.com/engakhattab" target="_blank" rel="noopener" class="link-arrow">More on GitHub
-            <i class="fa-solid fa-arrow-right"></i></a>
-        </p>
-      </div>
-    </section>
-
     <!-- ============ SKILLS ============ -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <header class="section-head" data-reveal>
-          <p class="eyebrow mono"><span>04</span> Skills</p>
+          <p class="eyebrow mono"><span>05</span> Skills</p>
           <h2 id="skills-title">My <span class="grad">toolbox</span></h2>
+          <p class="lead">Back-end first, full-stack by default — with AI as a growing edge.</p>
         </header>
       </div>
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee-track">
-          <span><i class="fa-brands fa-python"></i> Python</span><span>FastAPI</span>
-          <span><i class="fa-solid fa-hashtag"></i> C#</span><span>ASP.NET Core</span>
-          <span><i class="fa-brands fa-angular"></i> Angular</span><span>TypeScript</span>
-          <span>Qdrant</span><span>Hugging Face</span><span>RAG</span>
-          <span><i class="fa-brands fa-aws"></i> AWS</span><span><i class="fa-brands fa-github"></i> GitHub Actions</span>
-          <span>EF Core</span><span>SQL Server</span><span>PostgreSQL</span><span>xUnit</span><span>Testcontainers</span>
-          <span><i class="fa-brands fa-python"></i> Python</span><span>FastAPI</span>
-          <span><i class="fa-solid fa-hashtag"></i> C#</span><span>ASP.NET Core</span>
-          <span><i class="fa-brands fa-angular"></i> Angular</span><span>TypeScript</span>
-          <span>Qdrant</span><span>Hugging Face</span><span>RAG</span>
-          <span><i class="fa-brands fa-aws"></i> AWS</span><span><i class="fa-brands fa-github"></i> GitHub Actions</span>
-          <span>EF Core</span><span>SQL Server</span><span>PostgreSQL</span><span>xUnit</span><span>Testcontainers</span>
+          <span><i class="fa-solid fa-hashtag"></i> C#</span><span>ASP.NET Core</span><span>EF Core</span><span><i class="fa-solid fa-database"></i> SQL Server</span><span><i class="fa-brands fa-angular"></i> Angular</span><span>TypeScript</span><span>Clean Architecture</span><span>DDD · CQRS</span><span><i class="fa-solid fa-key"></i> OAuth 2.0 / OIDC</span><span>xUnit</span><span>Testcontainers</span><span><i class="fa-brands fa-github"></i> GitHub Actions</span><span><i class="fa-brands fa-aws"></i> AWS</span><span><i class="fa-brands fa-python"></i> Python</span><span>FastAPI</span><span>RAG &amp; LLMs</span>
+          <span><i class="fa-solid fa-hashtag"></i> C#</span><span>ASP.NET Core</span><span>EF Core</span><span><i class="fa-solid fa-database"></i> SQL Server</span><span><i class="fa-brands fa-angular"></i> Angular</span><span>TypeScript</span><span>Clean Architecture</span><span>DDD · CQRS</span><span><i class="fa-solid fa-key"></i> OAuth 2.0 / OIDC</span><span>xUnit</span><span>Testcontainers</span><span><i class="fa-brands fa-github"></i> GitHub Actions</span><span><i class="fa-brands fa-aws"></i> AWS</span><span><i class="fa-brands fa-python"></i> Python</span><span>FastAPI</span><span>RAG &amp; LLMs</span>
         </div>
       </div>
 
       <div class="container">
         <div class="skills-grid">
-          <article class="skill card spot" data-reveal>
-            <span class="skill-icon" style="--c:#a78bfa"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-            <h3>GenAI &amp; NLP</h3>
-            <div class="chips sm"><span>OpenAI SDK</span><span>Groq</span><span>OpenRouter</span><span>Hugging Face</span><span>RAG</span><span>Prompt design</span><span>Citation validation</span><span>LLM-as-a-judge</span><span>AR / EN chatbots</span></div>
+          <article class="skill card spot core" data-reveal>
+            <span class="skill-icon" style="--c:#818cf8"><i class="fa-solid fa-server"></i></span>
+            <span class="core-tag mono">core</span>
+            <h3>Back-End · .NET</h3>
+            <div class="chips sm"><span>C#</span><span>ASP.NET Core Web API</span><span>ASP.NET Core MVC</span><span>EF Core</span><span>MediatR</span><span>REST</span><span>OAuth 2.0 / OIDC</span><span>Duende IdentityServer</span><span>ASP.NET Identity</span><span>JWT</span><span>Background services</span><span>Swagger / OpenAPI</span></div>
           </article>
-          <article class="skill card spot" data-reveal style="--d:.06s">
-            <span class="skill-icon" style="--c:#22d3ee"><i class="fa-solid fa-brain"></i></span>
-            <h3>Machine Learning &amp; Retrieval</h3>
-            <div class="chips sm"><span>Semantic search</span><span>BGE embeddings</span><span>Cross-encoder ranking</span><span>RRF</span><span>BM25</span><span>Precision@K</span><span>OCR (Tesseract)</span></div>
+          <article class="skill card spot core" data-reveal style="--d:0.06s">
+            <span class="skill-icon" style="--c:#dd0031"><i class="fa-brands fa-angular"></i></span>
+            <span class="core-tag mono">core</span>
+            <h3>Front-End · Angular</h3>
+            <div class="chips sm"><span>Angular</span><span>TypeScript</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>OpenAPI client integration</span><span>Role-based UI</span></div>
           </article>
-          <article class="skill card spot" data-reveal style="--d:.12s">
-            <span class="skill-icon" style="--c:#34d399"><i class="fa-brands fa-python"></i></span>
-            <h3>Python Back-End</h3>
-            <div class="chips sm"><span>FastAPI</span><span>Pydantic</span><span>Flask</span><span>Background queues</span><span>Streaming APIs</span><span>PyMuPDF</span><span>python-docx</span></div>
-          </article>
-          <article class="skill card spot" data-reveal>
-            <span class="skill-icon" style="--c:#818cf8"><i class="fa-solid fa-layer-group"></i></span>
-            <h3>.NET &amp; Web</h3>
-            <div class="chips sm"><span>ASP.NET Core Web API</span><span>EF Core</span><span>REST</span><span>OAuth 2.0 / OIDC</span><span>JWT</span><span>Angular</span><span>TypeScript</span><span>Bootstrap</span></div>
-          </article>
-          <article class="skill card spot" data-reveal style="--d:.06s">
+          <article class="skill card spot core" data-reveal style="--d:0.12s">
             <span class="skill-icon" style="--c:#fb923c"><i class="fa-solid fa-sitemap"></i></span>
-            <h3>Architecture, Cloud &amp; Tools</h3>
-            <div class="chips sm"><span>Clean Architecture</span><span>DDD</span><span>CQRS</span><span>xUnit</span><span>Testcontainers</span><span>AWS EC2 / S3</span><span>GitHub Actions</span><span>Swagger</span><span>Claude Code</span><span>Spec Kit</span></div>
+            <span class="core-tag mono">core</span>
+            <h3>Architecture &amp; Testing</h3>
+            <div class="chips sm"><span>Clean Architecture</span><span>DDD</span><span>CQRS</span><span>System design</span><span>Optimistic concurrency</span><span>Repository / Unit of Work</span><span>xUnit</span><span>Testcontainers</span><span>Architecture tests</span></div>
           </article>
-          <article class="skill card spot" data-reveal style="--d:.12s">
+          <article class="skill card spot" data-reveal>
             <span class="skill-icon" style="--c:#f472b6"><i class="fa-solid fa-database"></i></span>
-            <h3>Data &amp; Languages</h3>
-            <div class="chips sm"><span>SQL Server</span><span>PostgreSQL</span><span>MySQL</span><span>Qdrant</span><span>Python</span><span>C#</span><span>TypeScript</span><span>SQL</span><span>Java</span><span>C</span><span>PHP</span></div>
+            <h3>Databases</h3>
+            <div class="chips sm"><span>SQL Server</span><span>PostgreSQL (Supabase)</span><span>MySQL</span><span>Redis (caching)</span><span>EF Core migrations</span><span>Qdrant (vector DB)</span></div>
+          </article>
+          <article class="skill card spot" data-reveal style="--d:0.06s">
+            <span class="skill-icon" style="--c:#a78bfa"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            <h3>AI &amp; GenAI</h3>
+            <div class="chips sm"><span>RAG</span><span>OpenAI SDK (Groq, OpenRouter)</span><span>Hugging Face (BGE)</span><span>Hybrid search + reranking</span><span>Citation validation</span><span>LLM-as-a-judge</span><span>Python · FastAPI</span><span>OCR</span></div>
+          </article>
+          <article class="skill card spot" data-reveal style="--d:0.12s">
+            <span class="skill-icon" style="--c:#34d399"><i class="fa-solid fa-cloud"></i></span>
+            <h3>Cloud, DevOps &amp; Languages</h3>
+            <div class="chips sm"><span>AWS EC2 / S3</span><span>Nginx</span><span>Apache</span><span>Load balancing</span><span>GitHub Actions</span><span>Git</span><span>WordPress</span><span>Claude Code</span><span>GitHub Spec Kit</span><span>C#</span><span>TypeScript</span><span>Python</span><span>SQL</span><span>Java</span><span>C</span><span>PHP</span></div>
           </article>
         </div>
       </div>
@@ -557,7 +696,7 @@
     <section class="section" id="education" aria-labelledby="edu-title">
       <div class="container">
         <header class="section-head" data-reveal>
-          <p class="eyebrow mono"><span>05</span> Education &amp; training</p>
+          <p class="eyebrow mono"><span>06</span> Education &amp; training</p>
           <h2 id="edu-title">Always <span class="grad">learning</span></h2>
         </header>
 
@@ -624,10 +763,10 @@
       <div class="container">
         <div class="contact-card" data-reveal="zoom">
           <div class="contact-glow" aria-hidden="true"></div>
-          <p class="eyebrow mono"><span>06</span> Contact</p>
+          <p class="eyebrow mono"><span>07</span> Contact</p>
           <h2 id="contact-title">Let's build something <span class="grad">intelligent</span>.</h2>
-          <p class="lead">Open to internships, junior roles and AI / back-end projects. The fastest way to reach me is
-            email.</p>
+          <p class="lead">Open to full-stack .NET &amp; Angular roles, back-end positions and internships — AI features
+            welcome. The fastest way to reach me is email.</p>
 
           <div class="email-row">
             <a class="email-link" href="mailto:engabdelrahmankhattab@gmail.com">engabdelrahmankhattab@gmail.com</a>
@@ -652,7 +791,7 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© <span id="year">2026</span> AbdElrahman Mohammed · Built by hand with HTML, CSS &amp; JS</p>
+      <p>© <span id="year">2026</span> AbdElrahman Khattab · Built by hand with HTML, CSS &amp; JS</p>
       <a href="#home" class="link-arrow">Back to top <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </footer>
@@ -660,6 +799,7 @@
   <button class="to-top" id="to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="./assets/js/i18n-ar.js" defer></script>
   <script src="./assets/js/main.js" defer></script>
 </body>
 
