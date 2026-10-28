@@ -5,46 +5,46 @@
 
 /* ---------- Theme tokens ---------- */
 :root {
-  --bg: #f5f7fc;
+  --bg: #f7f6f3;
   --bg-2: #ffffff;
   --surface: rgba(255, 255, 255, 0.72);
-  --surface-2: rgba(15, 23, 42, 0.04);
-  --border: rgba(15, 23, 42, 0.09);
-  --border-strong: rgba(15, 23, 42, 0.16);
-  --text: #0b1220;
-  --muted: #55607a;
-  --accent: #0891b2;
-  --accent-2: #7c3aed;
-  --accent-3: #059669;
-  --gold: #d97706;
+  --surface-2: rgba(28, 25, 23, 0.04);
+  --border: rgba(28, 25, 23, 0.10);
+  --border-strong: rgba(28, 25, 23, 0.18);
+  --text: #1c1917;
+  --muted: #5c5752;
+  --accent: #047857;
+  --accent-2: #b45309;
+  --accent-3: #15803d;
+  --gold: #a16207;
   --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
   --shadow-lg: 0 30px 60px -20px rgba(15, 23, 42, 0.25);
-  --grid-line: rgba(15, 23, 42, 0.05);
-  --blob-opacity: 0.35;
-  --grad: linear-gradient(110deg, var(--accent), var(--accent-2) 55%, #db2777);
+  --grid-line: rgba(28, 25, 23, 0.05);
+  --blob-opacity: 0.18;
+  --grad: linear-gradient(110deg, #047857, #059669 50%, #047857);
   --radius: 18px;
   --ease: cubic-bezier(.2, .8, .2, 1);
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #070b14;
-  --bg-2: #0b1120;
+  --bg: #0e0e10;
+  --bg-2: #161618;
   --surface: rgba(255, 255, 255, 0.035);
   --surface-2: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
-  --text: #e8edf7;
-  --muted: #8d99b0;
-  --accent: #22d3ee;
-  --accent-2: #a78bfa;
-  --accent-3: #34d399;
+  --text: #ecebe8;
+  --muted: #a19d97;
+  --accent: #34d399;
+  --accent-2: #fbbf24;
+  --accent-3: #6ee7b7;
   --gold: #fbbf24;
   --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 30px 70px -20px rgba(0, 0, 0, 0.7);
-  --grid-line: rgba(255, 255, 255, 0.035);
-  --blob-opacity: 0.5;
-  --grad: linear-gradient(110deg, var(--accent), var(--accent-2) 55%, #f472b6);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --blob-opacity: 0.22;
+  --grad: linear-gradient(110deg, #34d399, #6ee7b7 50%, #34d399);
   color-scheme: dark;
 }
 
@@ -178,13 +178,13 @@ button {
 }
 
 .b1 {
-  background: radial-gradient(circle, #06b6d4 0%, transparent 65%);
+  background: radial-gradient(circle, #10b981 0%, transparent 65%);
   top: -18vmax;
   left: -12vmax;
 }
 
 .b2 {
-  background: radial-gradient(circle, #8b5cf6 0%, transparent 65%);
+  background: radial-gradient(circle, #0d9488 0%, transparent 65%);
   top: 20vh;
   right: -20vmax;
   animation-delay: -8s;
@@ -192,7 +192,7 @@ button {
 }
 
 .b3 {
-  background: radial-gradient(circle, #ec4899 0%, transparent 65%);
+  background: radial-gradient(circle, #ca8a04 0%, transparent 65%);
   bottom: -26vmax;
   left: 25vw;
   opacity: calc(var(--blob-opacity) * .55);
@@ -283,8 +283,8 @@ body.has-pointer .cursor-glow {
 
 .btn-primary {
   color: #fff;
-  background: linear-gradient(110deg, #0891b2, #7c3aed);
-  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, .6);
+  background: linear-gradient(110deg, #059669, #047857);
+  box-shadow: 0 10px 30px -10px rgba(5, 150, 105, .6);
 }
 
 .btn-primary::after {
@@ -302,7 +302,7 @@ body.has-pointer .cursor-glow {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 16px 40px -10px rgba(124, 58, 237, .75);
+  box-shadow: 0 16px 40px -10px rgba(5, 150, 105, .75);
 }
 
 .btn-ghost {
@@ -396,8 +396,8 @@ body.has-pointer .cursor-glow {
   font-size: 14px;
   letter-spacing: .02em;
   color: #fff;
-  background: linear-gradient(135deg, #06b6d4, #7c3aed);
-  box-shadow: 0 6px 20px -6px rgba(124, 58, 237, .7);
+  background: linear-gradient(135deg, #10b981, #047857);
+  box-shadow: 0 6px 20px -6px rgba(5, 150, 105, .7);
   transition: transform .5s var(--ease);
 }
 
@@ -896,9 +896,9 @@ body.has-pointer .cursor-glow {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: conic-gradient(from var(--angle, 0deg), #06b6d4, #8b5cf6, #ec4899, #f59e0b, #06b6d4);
+  background: conic-gradient(from var(--angle, 0deg), #10b981, #6ee7b7, #fbbf24, #10b981);
   animation: spin-angle 6s linear infinite;
-  filter: drop-shadow(0 20px 40px rgba(124, 58, 237, .35));
+  filter: drop-shadow(0 20px 40px rgba(5, 150, 105, .35));
 }
 
 .portrait img {
@@ -1275,7 +1275,7 @@ body.has-pointer .cursor-glow {
   place-items: center;
   font-size: 17px;
   color: #fff;
-  background: linear-gradient(135deg, #06b6d4, #7c3aed);
+  background: linear-gradient(135deg, #10b981, #047857);
   margin-bottom: 6px;
 }
 
@@ -1358,7 +1358,7 @@ body.has-pointer .cursor-glow {
 .msg.user {
   align-self: flex-end;
   color: #fff;
-  background: linear-gradient(135deg, #0891b2, #7c3aed);
+  background: linear-gradient(135deg, #059669, #047857);
   border-bottom-right-radius: 4px;
 }
 
@@ -1869,7 +1869,7 @@ body.has-pointer .cursor-glow {
   left: 0;
   width: 0;
   border-radius: 10px;
-  background: linear-gradient(110deg, #0891b2, #7c3aed);
+  background: linear-gradient(110deg, #059669, #047857);
   transition: transform .45s var(--ease), width .45s var(--ease);
 }
 
@@ -2144,7 +2144,7 @@ body.has-pointer .cursor-glow {
   place-items: center;
   font-size: 24px;
   color: #fff;
-  background: linear-gradient(135deg, #06b6d4, #7c3aed);
+  background: linear-gradient(135deg, #10b981, #047857);
   margin-bottom: 20px;
 }
 
@@ -2374,8 +2374,8 @@ a.c-link:hover {
   border-radius: 14px;
   border: 0;
   color: #fff;
-  background: linear-gradient(135deg, #0891b2, #7c3aed);
-  box-shadow: 0 12px 30px -10px rgba(124, 58, 237, .7);
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 12px 30px -10px rgba(5, 150, 105, .7);
   opacity: 0;
   transform: translateY(20px) scale(.8);
   pointer-events: none;
@@ -2649,9 +2649,11 @@ a.c-link:hover {
   }
 
   .feature-list .chips,
-  .feature-list .btn,
   .btn-row {
     padding-left: 0;
+  }
+
+  .feature-list>.btn {
     margin-left: 0;
   }
 
@@ -3005,4 +3007,141 @@ a.c-link:hover {
 [dir="rtl"] .arch-tag {
   direction: ltr;
   unicode-bidi: isolate;
+}
+
+/* =========================================================
+   Phone polish
+   ========================================================= */
+.proj-links a {
+  padding: 8px 0;
+}
+
+@media (max-width: 920px) {
+  .scroll-cue {
+    display: none;
+  }
+
+  .nav.scrolled {
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero {
+    padding-top: 96px;
+    gap: 40px;
+  }
+
+  .hero-grid {
+    gap: 36px;
+  }
+
+  /* smaller photo block so the name shows sooner */
+  .hero-visual {
+    width: min(100%, 300px);
+  }
+
+  .orbit-1 .orb-icon {
+    --orbit-r: calc(min(300px, 88vw) * .48);
+    width: 36px;
+    height: 36px;
+    margin: -18px;
+    font-size: 16px;
+  }
+
+  .orbit-2 .orb-icon {
+    --orbit-r: calc(min(300px, 88vw) * .36);
+    width: 36px;
+    height: 36px;
+    margin: -18px;
+  }
+
+  /* floating cards: compact and pushed off the face */
+  .float-card {
+    padding: 7px 10px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .float-card strong {
+    font-size: 12.5px;
+  }
+
+  .float-card small {
+    font-size: 10.5px;
+  }
+
+  .fc-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  .fc-1 {
+    top: -4%;
+    left: -4%;
+  }
+
+  .fc-2 {
+    bottom: -2%;
+    right: -4%;
+  }
+
+  /* hero buttons share one row, equal width */
+  .hero-ctas {
+    gap: 10px;
+  }
+
+  .hero-ctas .btn {
+    flex: 1 1 140px;
+    --pad: 13px 16px;
+  }
+
+  /* contact: tidy 2-column grid, email never splits mid-word */
+  .email-link {
+    font-size: 16px;
+    overflow-wrap: normal;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .c-link {
+    justify-content: center;
+    padding: 12px 10px;
+  }
+
+  .contact-links .c-link:nth-child(n+3) {
+    grid-column: 1 / -1;
+  }
+
+  .to-top {
+    width: 42px;
+    height: 42px;
+    right: 14px;
+    bottom: 14px;
+    border-radius: 12px;
+  }
+
+  [dir="rtl"] .to-top {
+    right: auto;
+    left: 14px;
+  }
+
+  .tag-mini,
+  .skill>.core-tag {
+    font-size: 11.5px;
+  }
+
+  .footer .link-arrow {
+    padding: 8px 0;
+  }
 }
